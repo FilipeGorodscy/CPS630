@@ -1,0 +1,44 @@
+/* lab1-Part1-Team13.css */
+table,
+td,
+th {
+  border: 3px solid black;
+  border-collapse: collapse;
+  align: center;
+  text-align: center;
+}
+
+#left_center {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+#right_center {
+  width: 50%;
+  float: right;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1 {
+  background-color: #4caf50;
+}
+.button2 {
+  background-color: #008cba;
+}
+.button3 {
+  background-color: #a7387e;
+}
+.button4 {
+  background-color: #56d6ba;
+}
