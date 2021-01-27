@@ -1,7 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="lab1-Part1-Team13.css">
+<link rel="stylesheet" href="lab1-Part2-Team13.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#show-img-one").click(function(){
+    $("#img-one").fadeIn();
+  });
+  $("#hide-img-one").click(function(){
+    $("#img-one").fadeOut();
+  });
+  $("#show-img-two").click(function(){
+    $("#img-two").fadeIn();
+  });
+  $("#hide-img-two").click(function(){
+    $("#img-two").fadeOut();
+  });
+  $("#show-img-three").click(function(){
+    $("#img-three").fadeIn();
+  });
+  $("#hide-img-three").click(function(){
+    $("#img-three").fadeOut();
+  });
+});
+</script>
 <title>Electronics-Center</title>
 </head>
 <body>
@@ -52,7 +75,8 @@
                         <input type="radio" id="hide-info-one" name="toggle-info-one" value="hide-info-one">
                         <label for="hide-info-one">Hide</label>
                 </td>
-		<td><img src="https://images.idgesg.net/images/article/2019/04/ipad-mini-hero-100792913-large.jpg" alt="iPad Mini 5" height=200 width=300></td>
+		<td>
+            <img id="img-one" src="https://images.idgesg.net/images/article/2019/04/ipad-mini-hero-100792913-large.jpg" alt="iPad Mini 5" height=200 width=300></td>
 		<td>iPad Mini 5</td>
 		<td>Apple</td>
 		<td>2019</td>
@@ -79,7 +103,7 @@
                         <input type="radio" id="hide-info-two" name="toggle-info-two" value="hide-info-two">
                         <label for="hide-info-two">Hide</label>
                 </td>
-                <td><img src="https://images.samsung.com/ca/smartphones/galaxy-s21/buy/s21_family_kv_mo_img.jpg" alt="Galaxy S21" height=200 width=250></td>
+                <td><img  id="img-two" src="https://images.samsung.com/ca/smartphones/galaxy-s21/buy/s21_family_kv_mo_img.jpg" alt="Galaxy S21" height=200 width=250></td>
                 <td>Galaxy S21</td>
                 <td>Samsung</td>
                 <td>2021</td>
@@ -106,7 +130,9 @@
                         <input type="radio" id="hide-info-three" name="toggle-info-three" value="hide-info-three">
                         <label for="hide-info-three">Hide</label>
                 </td>
-                <td><img src="https://cdn.arstechnica.net/wp-content/uploads/2016/01/IMG_2860-980x653.jpg" alt="XPS 15 Inch 7590" height=200 width=300></td>
+                <td>
+                    <img id="img-three" src="https://cdn.arstechnica.net/wp-content/uploads/2016/01/IMG_2860-980x653.jpg" alt="XPS 15 Inch 7590" height=200 width=300>
+                </td>
                 <td>XPS 15 Inch 7590</td>
                 <td>Dell</td>
                 <td>2020</td>
