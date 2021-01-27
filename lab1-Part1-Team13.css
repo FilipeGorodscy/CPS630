@@ -1,0 +1,21 @@
+/* lab1-Part1-Team13.css */
+table, td, th
+{
+        border:3px solid black;
+	border-collapse:collapse;
+        align:center;
+	text-align:center;
+}
+
+#left_center
+{
+	width:50%;
+	float:left;
+	text-align:center;
+}
+#right_center
+{
+	width:50%;
+	float:right;
+	text-align:center;
+}
