@@ -23,6 +23,24 @@ $(document).ready(function(){
   $("#hide-img-three").click(function(){
     $("#img-three").fadeOut();
   });
+  $("#hide-info-one").click(function(){
+    $(".one-info").fadeOut();
+  });
+  $("#show-info-one").click(function(){
+    $(".one-info").fadeIn();
+  });
+  $("#hide-info-two").click(function(){
+    $(".two-info").fadeOut();
+  });
+  $("#show-info-two").click(function(){
+    $(".two-info").fadeIn();
+  });
+  $("#hide-info-three").click(function(){
+    $(".three-info").fadeOut();
+  });
+  $("#show-info-three").click(function(){
+    $(".three-info").fadeIn();
+  });
 });
 </script>
 <title>Electronics-Center</title>
@@ -77,10 +95,10 @@ $(document).ready(function(){
                 </td>
 		<td>
             <img id="img-one" src="https://images.idgesg.net/images/article/2019/04/ipad-mini-hero-100792913-large.jpg" alt="iPad Mini 5" height=200 width=300></td>
-		<td>iPad Mini 5</td>
-		<td>Apple</td>
-		<td>2019</td>
-		<td>Tablet</td>
+		<td><label class="one-info">iPad Mini 5</label></td>
+		<td><label class="one-info">Apple</label></td>
+		<td><label class="one-info">2019</label></td>
+		<td><label class="one-info">Tablet</label></td>
 		<td>
                         <button class="button button1">Action1</button>
                         <button class="button button2">Action2</button>
@@ -104,10 +122,10 @@ $(document).ready(function(){
                         <label for="hide-info-two">Hide</label>
                 </td>
                 <td><img  id="img-two" src="https://images.samsung.com/ca/smartphones/galaxy-s21/buy/s21_family_kv_mo_img.jpg" alt="Galaxy S21" height=200 width=250></td>
-                <td>Galaxy S21</td>
-                <td>Samsung</td>
-                <td>2021</td>
-                <td>CellPhone</td>
+                <td><label class="two-info">Galaxy S21</label></td>
+                <td><label class="two-info">Samsung</label></td>
+                <td><label class="two-info">2021</label></td>
+                <td><label class="two-info">CellPhone</label></td>
                 <td>
                         <button class="button button1">Action1</button>
                         <button class="button button2">Action2</button>
@@ -133,10 +151,10 @@ $(document).ready(function(){
                 <td>
                     <img id="img-three" src="https://cdn.arstechnica.net/wp-content/uploads/2016/01/IMG_2860-980x653.jpg" alt="XPS 15 Inch 7590" height=200 width=300>
                 </td>
-                <td>XPS 15 Inch 7590</td>
-                <td>Dell</td>
-                <td>2020</td>
-                <td>LapTop</td>
+                <td><label class="three-info">XPS 15 Inch 7590</label></td>
+                <td><label class="three-info">Dell</label></td>
+                <td><label class="three-info">2020</label> </td>
+                <td><label class="three-info">LapTop</label></td>
                 <td>
                         <button class="button button1">Action1</button>
                         <button class="button button2">Action2</button>
