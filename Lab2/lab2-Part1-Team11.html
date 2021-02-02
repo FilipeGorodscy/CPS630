@@ -3,8 +3,7 @@
     <title>Art Work Database</title>
     <script>
         function onFormChange() {
-            var str = 'Selected data: ';
-            str += document.getElementById("Genre").value + " ";
+            var str = document.getElementById("Genre").value + " ";
             str += document.getElementById("Type").value + " ";
             if(document.getElementById('Type').value === 'Painting')
             {
@@ -67,7 +66,7 @@
         }
 
         function saveRecord() {
-            
+
         }
     </script>
   </head>
@@ -117,6 +116,6 @@
         <label for="museum">Museum:</label>
         <input type="text" id="museum" name="museum">
     </form>
-    <div id="results"></div>
+    <div id="results" style="text-align:center;"></div>
   </body>
 </html>
