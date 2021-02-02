@@ -3,7 +3,7 @@
     <title>Art Work Database</title>
     <script>
         function onSelect() {
-            if(document.getElementById('test').value === 'Painting')
+            if(document.getElementById('Type').value === 'Painting')
             {
                 document.getElementById('painting-span').innerHTML = 
                 `<br><br>
@@ -17,6 +17,42 @@
             {
                 document.getElementById('painting-span').innerHTML = "";
             }
+        }
+
+        function clearRecord() {
+            document.getElementById('Art').innerHTML = 
+            `<label for="Genre">Genre:</label>
+            <select name="Genre" id="Genre">
+                <option value="Abstract">Abstract</option>
+                <option value="Baroque">Baroque</option>
+                <option value="Gothic">Gothic</option>
+                <option value="Renaissance">Renaissance</option>
+            </select>
+            <br><br>
+            <label for="Type">Type:</label>
+            <select id="Type" onchange="onSelect()">
+                <option value="Sculpture">Sculpture</option>
+                <option value="Painting">Painting</option>
+            </select>
+            <span id='painting-span'></span>
+            <br><br>
+            <label for="Specification">Specification:</label>
+            <select name="Specification" id="Specification">
+                <option value="Commercial">Commercial</option>
+                <option value="Non-commercial">Non-commercial</option>
+                <option value="Derivative Work">Derivative Work</option>
+                <option value="Non-Derivative Work">Non-Derivative Work</option>
+            </select>
+            <br><br>
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year">
+            <br><br>
+            <label for="museum">Museum:</label>
+            <input type="text" id="museum" name="museum">`;
+        }
+
+        function saveRecord() {
+
         }
     </script>
   </head>
@@ -34,30 +70,32 @@
       </ol>
     </p>
     <hr>
-    <form>
-            <label for="Genre">Genre:</label>
-            <select name="Genre" id="Genre">
-                <option value="Abstract">Abstract</option>
-                <option value="Baroque">Baroque</option>
-                <option value="Gothic">Gothic</option>
-                <option value="Renaissance">Renaissance</option>
-            </select>
-            <br><br>
-            <label for="test">Type:</label>
-            <select id="test" onchange="onSelect()">
-                <option value="Sculpture">Sculpture</option>
-                <option value="Painting">Painting</option>
-            </select>
-            <span id='painting-span'></span>
-            <br><br>
-            <label for="Specification">Specification:</label>
-            <select name="Specification" id="Specification">
-                <option value="Commercial">Commercial</option>
-                <option value="Non-commercial">Non-commercial</option>
-                <option value="Derivative Work">Derivative Work</option>
-                <option value="Non-Derivative Work">Non-Derivative Work</option>
-            </select>
-            <br><br>
+    <button style="float:right;" onclick="saveRecord()">Save Record</button>
+    <button style="float:right;" onclick="clearRecord()">Clear Record</button>
+    <form id="Art">
+        <label for="Genre">Genre:</label>
+        <select name="Genre" id="Genre">
+            <option value="Abstract">Abstract</option>
+            <option value="Baroque">Baroque</option>
+            <option value="Gothic">Gothic</option>
+            <option value="Renaissance">Renaissance</option>
+        </select>
+        <br><br>
+        <label for="Type">Type:</label>
+        <select id="Type" onchange="onSelect()">
+            <option value="Sculpture">Sculpture</option>
+            <option value="Painting">Painting</option>
+        </select>
+        <span id='painting-span'></span>
+        <br><br>
+        <label for="Specification">Specification:</label>
+        <select name="Specification" id="Specification">
+            <option value="Commercial">Commercial</option>
+            <option value="Non-commercial">Non-commercial</option>
+            <option value="Derivative Work">Derivative Work</option>
+            <option value="Non-Derivative Work">Non-Derivative Work</option>
+        </select>
+        <br><br>
         <label for="year">Year:</label>
         <input type="text" id="year" name="year">
         <br><br>
