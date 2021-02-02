@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Art Work</title>
+    <title>Art Work Database</title>
     <script>
         function onFormChange() {
             document.getElementById("results").innerHTML = 
@@ -16,7 +16,8 @@
             if(document.getElementById('type').value === 'Painting')
             {
                 document.getElementById('painting-span').innerHTML = 
-                `<label for="Painting">Painting:</label>\n
+                `<br><br>
+                <label for="Painting">Painting:</label>\n
                 <select name="Painting" id="Painting">\n
                     <option value="Landscape">Landscape</option>\n
                     <option value="Portrait">Portrait</option>\n
