@@ -2,8 +2,18 @@
   <head>
     <title>Art Work</title>
     <script>
+        function onFormChange() {
+            document.getElementById("results").innerHTML = 
+            'Selected data:' +
+            document.getElementById("Genre").value +
+            document.getElementById("type").value +
+            document.getElementById("Painting").value +
+            document.getElementById("Specification").value +
+            document.getElementById("year").value + 
+            document.getElementById("museum").value
+        }
         function onSelect() {
-            if(document.getElementById('test').value === 'Painting')
+            if(document.getElementById('type').value === 'Painting')
             {
                 document.getElementById('painting-span').innerHTML = 
                 `<label for="Painting">Painting:</label>\n
@@ -33,7 +43,7 @@
       </ol>
     </p>
     <hr>
-    <form>
+    <form id="form" onchange="onFormChange()">
             <label for="Genre">Genre:</label>
             <select name="Genre" id="Genre">
                 <option value="Abstract">Abstract</option>
@@ -42,10 +52,10 @@
                 <option value="Renaissance">Renaissance</option>
             </select>
             <br><br>
-            <label for="test">Type:</label>
-            <select id="test" onchange="onSelect()">
-                <option value="Sculpture">Sculpture</option>
+            <label for="type">Type:</label>
+            <select id="type" onchange="onSelect()">
                 <option value="Painting">Painting</option>
+                <option value="Sculpture">Sculpture</option>
             </select>
             <span id='painting-span'></span>
             <br><br>
