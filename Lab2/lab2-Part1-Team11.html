@@ -3,8 +3,7 @@
     <title>Art Work Database</title>
     <script>
         function onFormChange() {
-            var str = 'Selected data: ';
-            str += document.getElementById("Genre").value + " ";
+            var str = document.getElementById("Genre").value + " ";
             str += document.getElementById("Type").value + " ";
             if(document.getElementById('Type').value === 'Painting')
             {
@@ -67,6 +66,9 @@
         }
 
         function saveRecord() {
+            var records = [];
+            records.push(document.getElementById('results'));
+            console.log(records);
             
         }
     </script>
