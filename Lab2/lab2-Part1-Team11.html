@@ -2,6 +2,15 @@
   <head>
     <title>Art Work Database</title>
     <script>
+        function onFormChange() {
+            document.getElementById("results").innerHTML = 
+            'Selected data:' +
+            document.getElementById("Genre").value + " " +
+            document.getElementById("type").value + " " +
+            document.getElementById("Specification").value + " " +
+            document.getElementById("year").value + " " +
+            document.getElementById("museum").value
+        }
         function onSelect() {
             if(document.getElementById('Type').value === 'Painting')
             {
@@ -20,7 +29,7 @@
         }
 
         function clearRecord() {
-            document.getElementById('Art').innerHTML = 
+            document.getElementById('form').innerHTML = 
             `<label for="Genre">Genre:</label>
             <select name="Genre" id="Genre">
                 <option value="Abstract">Abstract</option>
@@ -33,6 +42,7 @@
             <select id="Type" onchange="onSelect()">
                 <option value="Sculpture">Sculpture</option>
                 <option value="Painting">Painting</option>
+                <option value="Sculpture">Sculpture</option>
             </select>
             <span id='painting-span'></span>
             <br><br>
@@ -72,7 +82,7 @@
     <hr>
     <button style="float:right;" onclick="saveRecord()">Save Record</button>
     <button style="float:right;" onclick="clearRecord()">Clear Record</button>
-    <form id="Art">
+    <form id="form" onchange="onFormChange()">
         <label for="Genre">Genre:</label>
         <select name="Genre" id="Genre">
             <option value="Abstract">Abstract</option>
@@ -102,5 +112,6 @@
         <label for="museum">Museum:</label>
         <input type="text" id="museum" name="museum">
     </form>
+    <div id="results"></div>
   </body>
 </html>
