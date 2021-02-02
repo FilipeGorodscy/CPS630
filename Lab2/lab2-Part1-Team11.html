@@ -3,13 +3,17 @@
     <title>Art Work Database</title>
     <script>
         function onFormChange() {
-            document.getElementById("results").innerHTML = 
-            'Selected data:' +
-            document.getElementById("Genre").value + " " +
-            document.getElementById("type").value + " " +
-            document.getElementById("Specification").value + " " +
-            document.getElementById("year").value + " " +
-            document.getElementById("museum").value
+            var str = 'Selected data: ';
+            str += document.getElementById("Genre").value + " ";
+            str += document.getElementById("Type").value + " ";
+            if(document.getElementById('Type').value === 'Painting')
+            {
+                str += document.getElementById("Painting").value + " ";
+            }
+            str += document.getElementById("Specification").value + " ";
+            str += document.getElementById("year").value + " ";
+            str += document.getElementById("museum").value + " ";
+            document.getElementById("results").innerHTML = str
         }
         function onSelect() {
             if(document.getElementById('Type').value === 'Painting')
@@ -29,6 +33,7 @@
         }
 
         function clearRecord() {
+            document.getElementById('results').innerHTML = ""
             document.getElementById('form').innerHTML = 
             `<label for="Genre">Genre:</label>
             <select name="Genre" id="Genre">
@@ -62,7 +67,7 @@
         }
 
         function saveRecord() {
-
+            
         }
     </script>
   </head>
