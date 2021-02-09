@@ -1,22 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="connect.php" method="POST">
-        <label for="test">Specification:</label>
-        <select name="test" id="test">
+<html>
+  <head>
+    <title>Art Work Database</title>
+    <script>
+        var records = [];
+
+        function onArrayChange() {
+            document.getElementById('arrayOutput').innerHTML = "Array Value: " +
+                records[document.getElementById('array').value];
+        }
+
+        function onFormChange() {
+            var str = document.getElementById("Genre").value + " ";
+            str += document.getElementById("Type").value + " ";
+            if(document.getElementById('Type').value === 'Painting')
+            {
+                str += document.getElementById("Painting").value + " ";
+            }
+            str += document.getElementById("Specification").value + " ";
+            str += document.getElementById("year").value + " ";
+            str += document.getElementById("museum").value + " ";
+            document.getElementById("results").innerHTML = str
+        }
+        function onSelect() {
+            if(document.getElementById('Type').value === 'Painting')
+            {
+                document.getElementById('painting-span').innerHTML = 
+                `<br><br>
+                <label for="Painting">Painting:</label>\n
+                <select name="painting" id="Painting">\n
+                    <option value="Landscape">Landscape</option>\n
+                    <option value="Portrait">Portrait</option>\n
+                </select>`;
+            }
+            else 
+            {
+                document.getElementById('painting-span').innerHTML = "";
+            }
+        }
+
+        function clearRecord() {
+           // document.getElementById('results').innerHTML = ""
+            document.getElementById('form').innerHTML = 
+            `<input type="submit" value="Save Record" style="float:right;" onclick="saveRecord()"/>
+            <input type="button" value="Clear" style="float:right;" onclick="clearRecord()"/>
+            <label for="Genre">Genre:</label>
+            <select name="genre" id="Genre">
+                <option value="Abstract">Abstract</option>
+                <option value="Baroque">Baroque</option>
+                <option value="Gothic">Gothic</option>
+                <option value="Renaissance">Renaissance</option>
+            </select>
+            <br><br>
+            <label for="Type">Type:</label>
+            <select name="type" id="Type" onchange="onSelect()">
+                <option value="Sculpture">Sculpture</option>
+                <option value="Painting">Painting</option>
+            </select>
+            <span id='painting-span'></span>
+            <br><br>
+            <label for="Specification">Specification:</label>
+            <select name="specification" id="Specification">
+                <option value="Commercial">Commercial</option>
+                <option value="Non-commercial">Non-commercial</option>
+                <option value="Derivative Work">Derivative Work</option>
+                <option value="Non-Derivative Work">Non-Derivative Work</option>
+            </select>
+            <br><br>
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year">
+            <br><br>
+            <label for="museum">Museum:</label>
+            <input type="text" id="museum" name="museum">`;
+            onFormChange();
+        }
+
+        function saveRecord() {
+            records.push(document.getElementById('results').innerHTML);
+            console.log(records);
+            
+        }
+    </script>
+  </head>
+  <body onload="onFormChange()">
+    <h2>Art Work Database</h2>
+    <p>
+      In this database you will find all kinds of art works you can imagine!
+      Each art work will have:
+      <ol>
+          <li>Genre -- Abstract, Baroque, etc.</li>
+          <li>Type -- Painting (Landscape, Portrait) and Sculpture</li>
+          <li>Specification -- Comercial, Non-comercial, etc.</li>
+          <li>Year -- Creation year</li>
+          <li>Museum -- the museum it is being kept currently</li>
+      </ol>
+      <label for="array">Array Index:</label>
+      <input type="number" id="array" name="array" min="0" onchange="onArrayChange()">
+      <br><br>
+      <div id="arrayOutput"></div>
+    </p>
+    <hr>
+    <form method="post" action="/scripts/insert.php" id="form" onchange="onFormChange()">
+      <input type="submit" value="Save Record" style="float:right;" onclick="saveRecord()"/>
+      <input type="button" value="Clear" style="float:right;" onclick="clearRecord()"/>
+        <label for="Genre">Genre:</label>
+        <select name="genre" id="Genre">
+            <option value="Abstract">Abstract</option>
+            <option value="Baroque">Baroque</option>
+            <option value="Gothic">Gothic</option>
+            <option value="Renaissance">Renaissance</option>
+        </select>
+        <br><br>
+        <label for="Type">Type:</label>
+        <select name="type" id="Type" onchange="onSelect()">
+            <option value="Sculpture">Sculpture</option>
+            <option value="Painting">Painting</option>
+        </select>
+        <span id='painting-span'></span>
+        <br><br>
+        <label for="Specification">Specification:</label>
+        <select name="specification" id="Specification">
             <option value="Commercial">Commercial</option>
             <option value="Non-commercial">Non-commercial</option>
             <option value="Derivative Work">Derivative Work</option>
             <option value="Non-Derivative Work">Non-Derivative Work</option>
         </select>
-        <input type="submit" value="Insert">
+        <br><br>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year">
+        <br><br>
+        <label for="museum">Museum:</label>
+        <input type="text" id="museum" name="museum">
     </form>
-    
-</body>
+    <div id="results" style="text-align:center;"></div>
+  </body>
 </html>
