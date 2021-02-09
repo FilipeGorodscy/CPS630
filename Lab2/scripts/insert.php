@@ -29,5 +29,11 @@ VALUES
 $statement = $pdo->prepare($sql);
 $statement->execute(array($_POST['genre'],$_POST['type'],$_POST['specification'],$_POST['painting'],$_POST['year'],$_POST['museum']));
 
+if($statement) {
+    echo "Record inserted successfully!";
+} else {
+    echo "Error with insertion.";
+}
+
 $pdo = null;
 ?>
