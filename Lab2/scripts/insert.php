@@ -21,6 +21,8 @@ catch (PDOException $e) {
 $id = rand(0, 999999);
 
 // sql to create table
+    if (isset($_POST["addStudent"])) {
+
 $sql = "INSERT INTO art_work 
 (id, genre, art_type, specification, painting, creation_year, museum)
 VALUES 
@@ -34,6 +36,18 @@ if($statement) {
 } else {
     echo "Error with insertion.";
 }
+} else{
+    try {
+        $sql = "DELETE FROM art_work WHERE genre='" . $_POST['genre'] . "' AND type='" . $_POST['type'] . "' AND specification='" . $_POST['specification'] . "' AND painting='" . $_POST['painting'] . "' AND year='" . $_POST['year'] . "' AND museum='" . $_POST['museum'] . "'";
+        
+    }
+    catch (Exception $e) {
+        echo $e->getMessage();
+    }
+ }
+
+
+
 
 $pdo = null;
 ?>
