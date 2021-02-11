@@ -21,7 +21,7 @@ catch (PDOException $e) {
 $id = rand(0, 999999);
 
 // sql to create table
-    if (isset($_POST["addStudent"])) {
+    if (isset($_POST["addArtwork"])) {
 
 $sql = "INSERT INTO art_work 
 (id, genre, art_type, specification, painting, creation_year, museum)
@@ -36,7 +36,54 @@ if($statement) {
 } else {
     echo "Error with insertion.";
 }
-} else{
+    }
+elseif (isset($_POST["deleteArtwork"])) {
+    try {
+        $sql = "DELETE FROM art_work WHERE id='".$_POST['deleterecord']."'";
+
+        if ($pdo->query($sql)) {
+            echo "RECORD DELETED";
+        }
+        else {
+            echo "RECORD NOT DELETED: " . $conn->error ;
+        }
+    }
+    catch (Exception $e) {
+        echo $e->getMessage();
+    }
+} 
+elseif (isset($_POST["queryArtwork"])) {
+    try {
+        if ($_POST['genrebox'] != NULL) {
+            echo "Hello";
+        }
+        else {
+            echo "Well";
+        }
+        $sql = "SELECT * FROM art_work WHERE
+        genre LIKE 
+        CASE
+            WHEN '".$_POST['genrebox']."' != NULL
+            THEN '".$_POST[$_POST['genrebox']]."'
+            ELSE '%'
+        END";
+
+        #$sql = "SELECT * FROM art_work WHERE genre='".$_POST[$_POST['genrebox']]."'";
+
+
+#{genre='".$_POST[$_POST['genrebox']]."'";
+        if ($pdo->query($sql)) {
+            echo $sql;
+        }
+        else {
+            echo "RECORD NOT QUERIED: " . $conn->error ;
+        }
+    }
+    catch (Exception $e) {
+        echo $e->getMessage();
+    }
+}
+/*else{
     try {
         if(!$_POST['painting']){
             $sql = "DELETE FROM art_work WHERE genre='".$_POST['genre']. "' AND art_type='" . $_POST['type'] . "' AND specification='" . $_POST['specification'] . "' AND creation_year='" . $_POST['year'] . "' AND museum='" . $_POST['museum'] . "'";
@@ -56,7 +103,7 @@ if($statement) {
     catch (Exception $e) {
         echo $e->getMessage();
     }
- }
+ }*/
 
 
 

@@ -40,7 +40,8 @@
 
         function clearRecord() {
             document.getElementById('form').innerHTML = 
-            `<input type="submit" value="Save Record" style="float:right;" onclick="saveRecord()"/>
+            `<input type="submit" name="addArtwork" value="Save Record" style="float:right;" onclick="saveRecord()"/>
+            <input type="submit" name="queryArtwork" value="Query Record" style="float:right;"/>
             <input type="button" value="Clear" style="float:right;" onclick="clearRecord()"/>
             <label for="Genre">Genre:</label>
             <select name="genre" id="Genre">
@@ -96,11 +97,23 @@
       <input type="number" id="array" name="array" min="0" onchange="onArrayChange()">
       <br><br>
       <div id="arrayOutput"></div>
+      <form method="post" action="/scripts/insert.php" id="deleteform">
+        <label for="deleterecord">Delete By ID:</label>
+        <input type="text" id="deleterecord" name="deleterecord" min="0">
+        <input type="submit" name="deleteArtwork" value="Delete Record"/>
+      </form>
+    <br>
     </p>
     <hr>
+    <form method="post" action="/scripts/insert.php" id="queryform">
+        <input type="checkbox" id="genrebox" name="genrebox" value="genre">
+        <input type="checkbox" id="typebox" name="typebox" value="type">
+        <input type="checkbox" id="specificationbox" name="specificationbox" value="specification">
+        <input type="checkbox" id="yearbox" name="yearbox" value="year">
+        <input type="checkbox" id="museumbox" name="museumbox" value="museum">
     <form method="post" action="/scripts/insert.php" id="form" onchange="onFormChange()">
-      <input type="submit" name="addStudent" value="Save Record" style="float:right;" onclick="saveRecord()"/>
-      <input type="submit" name="deleteStudent" value="Delete Record" style="float:right;" onclick="saveRecord()"/>
+      <input type="submit" name="addArtwork" value="Save Record" style="float:right;" onclick="saveRecord()"/>
+      <input type="submit" name="queryArtwork" value="Query Record" style="float:right;"/>
       <input type="button" value="Clear" style="float:right;" onclick="clearRecord()"/>
         <label for="Genre">Genre:</label>
         <select name="genre" id="Genre">
