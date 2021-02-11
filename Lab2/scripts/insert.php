@@ -44,7 +44,7 @@ if($statement) {
             echo "RECORD DELETED";
         }
         else {
-            echo "RECORD NOT DELETED: " ;
+            echo "RECORD NOT DELETED: " . $conn->error ;
         }
     }
     catch (Exception $e) {
