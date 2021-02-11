@@ -39,10 +39,11 @@
         }
 
         function clearRecord() {
-           // document.getElementById('results').innerHTML = ""
             document.getElementById('form').innerHTML = 
-            `<label for="Genre">Genre:</label>
-            <select name="Genre" id="Genre">
+            `<input type="submit" value="Save Record" style="float:right;" onclick="saveRecord()"/>
+            <input type="button" value="Clear" style="float:right;" onclick="clearRecord()"/>
+            <label for="Genre">Genre:</label>
+            <select name="genre" id="Genre">
                 <option value="Abstract">Abstract</option>
                 <option value="Baroque">Baroque</option>
                 <option value="Gothic">Gothic</option>
