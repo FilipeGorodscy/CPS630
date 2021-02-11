@@ -44,8 +44,9 @@ if($statement) {
         else{
             $sql = "DELETE FROM art_work WHERE genre='".$_POST['genre']. "' AND art_type='" . $_POST['type'] . "' AND specification='" . $_POST['specification'] . "' AND painting='" . $_POST['painting'] . "' AND creation_year='" . $_POST['year'] . "' AND museum='" . $_POST['museum'] . "'";
         }
+        
         echo $sql;
-        if ($pdo->query($sql) === TRUE) {
+        if ($pdo->query($sql)) {
             echo "RECORD DELETED";
         }
         else {
