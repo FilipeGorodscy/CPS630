@@ -91,6 +91,16 @@ elseif (isset($_POST["queryArtwork"])) {
             $sql = $sql . " AND art_type= '" . $query. "'" ;
             
         }
+        if ($_POST["paintingbox"] != NULL && $counter != 1) {
+            $query=$_POST["painting"];
+            $sql = $sql . " WHERE painting= '" . $query. "'" ;
+            $counter = $counter +1;
+            
+        } elseif($_POST["paintingbox"] != NULL && $counter == 1){
+            $query=$_POST["painting"];
+            $sql = $sql . " AND painting= '" . $query. "'" ;
+            
+        }
         if ($_POST["specificationbox"] != NULL && $counter != 1) {
             $query=$_POST["specification"];
             $sql = $sql . " WHERE specification= '" . $query. "'" ;
@@ -131,7 +141,7 @@ elseif (isset($_POST["queryArtwork"])) {
         echo "<h3> Error while retrieving record: " . $e->getMessage() . "</h3>";
     }
 
-    $row1 = $result->fetch_assoc();
+   // $row1 = $result->fetch_assoc();
         
         
 
@@ -173,7 +183,7 @@ elseif (isset($_POST["queryArtwork"])) {
 #{genre='".$_POST[$_POST['genrebox']]."'";
         
             $result = $pdo->query($sql);
-            $row1 = $result->fetch_assoc();
+            //$row1 = $result->fetch_assoc();
             
            // echo ( $row1["genre"] . $row1["art_type"]);
         
@@ -205,7 +215,7 @@ elseif (isset($_POST["selectTable"])) {
         echo "<h3> Error while retrieving record: " . $e->getMessage() . "</h3>";
     }
 
-    $row1 = $result->fetch_assoc();
+   // $row1 = $result->fetch_assoc();
         
         
 
