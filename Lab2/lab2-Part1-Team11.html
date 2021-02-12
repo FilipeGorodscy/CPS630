@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Art Work Databaseee</title>
+    <title>Art Work Database 1</title>
     <script>
         var records = [];
 
@@ -39,6 +39,8 @@
         }
 
         function clearRecord() {
+            document.getElementById('arrayOutput').innerHTML = "";
+            document.getElementById('array').value = '';
             document.getElementById('form').innerHTML = 
             `<input type="submit" value="Save Record" style="float:right;" onclick="saveRecord()"/>
             <input type="button" value="Clear" style="float:right;" onclick="clearRecord()"/>

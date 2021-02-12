@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Art Work Database Tester</title>
+    <title>Art Work Database 2</title>
     <script>
         var records = [];
 
@@ -41,6 +41,9 @@
         }
 
         function clearRecord() {
+            document.getElementById('arrayOutput').innerHTML = "";
+            document.getElementById('array').value = '';
+            document.getElementById('deleterecord').value = '';
             document.getElementById('form').innerHTML = 
             `<form method="post" action="/scripts/insert.php" id="form" onchange="onFormChange()">
       <input type="submit" name="addArtwork" value="Save Record" style="float:right;" onclick="saveRecord()"/>
