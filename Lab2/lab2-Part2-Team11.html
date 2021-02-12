@@ -22,7 +22,7 @@
             document.getElementById("results").innerHTML = str
         }
         function onSelect() {
-            if(document.getElementById('Type').value === 'Painting')
+          if(document.getElementById('Type').value === 'Painting')
             {
                 document.getElementById('painting-span').innerHTML = 
                 `<br><br>
@@ -31,6 +31,8 @@
                     <option value="Landscape">Landscape</option>\n
                     <option value="Portrait">Portrait</option>\n
                 </select>`;
+                document.getElementById('paintingSpan').innerHTML=
+                '<input type="checkbox" id="paintingbox" name="paintingbox" value="painting">Check to query by painting<br>';
             }
             else 
             {
@@ -40,37 +42,46 @@
 
         function clearRecord() {
             document.getElementById('form').innerHTML = 
-            `<input type="submit" name="addArtwork" value="Save Record" style="float:right;" onclick="saveRecord()"/>
-            <input type="submit" name="queryArtwork" value="Query Record" style="float:right;"/>
-            <input type="button" value="Clear" style="float:right;" onclick="clearRecord()"/>
-            <label for="Genre">Genre:</label>
-            <select name="genre" id="Genre">
-                <option value="Abstract">Abstract</option>
-                <option value="Baroque">Baroque</option>
-                <option value="Gothic">Gothic</option>
-                <option value="Renaissance">Renaissance</option>
-            </select>
-            <br><br>
-            <label for="Type">Type:</label>
-            <select name="type" id="Type" onchange="onSelect()">
-                <option value="Sculpture">Sculpture</option>
-                <option value="Painting">Painting</option>
-            </select>
-            <span id='painting-span'></span>
-            <br><br>
-            <label for="Specification">Specification:</label>
-            <select name="specification" id="Specification">
-                <option value="Commercial">Commercial</option>
-                <option value="Non-commercial">Non-commercial</option>
-                <option value="Derivative Work">Derivative Work</option>
-                <option value="Non-Derivative Work">Non-Derivative Work</option>
-            </select>
-            <br><br>
-            <label for="year">Year:</label>
-            <input type="text" id="year" name="year">
-            <br><br>
-            <label for="museum">Museum:</label>
-            <input type="text" id="museum" name="museum">`;
+            `<form method="post" action="/scripts/insert.php" id="form" onchange="onFormChange()">
+      <input type="submit" name="addArtwork" value="Save Record" style="float:right;" onclick="saveRecord()"/>
+      <input type="submit" name="queryArtwork" value="Query Record" style="float:right;"/>
+      <input type="button" value="Clear" style="float:right;" onclick="clearRecord()"/>
+        <label for="Genre">Genre:</label>
+        <select name="genre" id="Genre">
+            <option value="Abstract">Abstract</option>
+            <option value="Baroque">Baroque</option>
+            <option value="Gothic">Gothic</option>
+            <option value="Renaissance">Renaissance</option>
+        </select>
+        <br><br>
+        <label for="Type">Type:</label>
+        <select name="type" id="Type" onchange="onSelect()">
+            <option value="Sculpture">Sculpture</option>
+            <option value="Painting">Painting</option>
+        </select>
+        <span id='painting-span'></span>
+        <br><br>
+        <label for="Specification">Specification:</label>
+        <select name="specification" id="Specification">
+            <option value="Commercial">Commercial</option>
+            <option value="Non-commercial">Non-commercial</option>
+            <option value="Derivative Work">Derivative Work</option>
+            <option value="Non-Derivative Work">Non-Derivative Work</option>
+        </select>
+        <br><br>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year">
+        <br><br>
+        <label for="museum">Museum:</label>
+        <input type="text" id="museum" name="museum"><br><br>
+        <form method="post" action="/scripts/insert.php" id="queryform" onchange="onFormChange()">
+            <input type="checkbox" id="genrebox" name="genrebox" value="genre">Check to query by genre<br>
+            <input type="checkbox" id="typebox" name="typebox" value="type">Check to query by type<br>
+            <span id="paintingSpan"></span>
+            <input type="checkbox" id="specificationbox" name="specificationbox" value="specification">Check to query by specification<br>
+            <input type="checkbox" id="yearbox" name="yearbox" value="year">Check to query by year<br>
+            <input type="checkbox" id="museumbox" name="museumbox" value="museum">Check to query by museum<br><br>
+    </form>`;
             onFormChange();
         }
 
@@ -84,7 +95,7 @@
   <body onload="onFormChange()">
     <h2>Art Work Databasee</h2>
     <p>
-      In this database you will find all kinds of art works you can imagine!
+      In this database you will find all kinds of art works you can imagine!!!
       Each art work will have:
       <ol>
           <li>Genre -- Abstract, Baroque, etc.</li>
@@ -105,12 +116,7 @@
     <br>
     </p>
     <hr>
-    <form method="post" action="/scripts/insert.php" id="queryform">
-        <input type="checkbox" id="genrebox" name="genrebox" value="genre">
-        <input type="checkbox" id="typebox" name="typebox" value="type">
-        <input type="checkbox" id="specificationbox" name="specificationbox" value="specification">
-        <input type="checkbox" id="yearbox" name="yearbox" value="year">
-        <input type="checkbox" id="museumbox" name="museumbox" value="museum">
+    <div>
     <form method="post" action="/scripts/insert.php" id="form" onchange="onFormChange()">
       <input type="submit" name="addArtwork" value="Save Record" style="float:right;" onclick="saveRecord()"/>
       <input type="submit" name="queryArtwork" value="Query Record" style="float:right;"/>
@@ -142,7 +148,14 @@
         <input type="text" id="year" name="year">
         <br><br>
         <label for="museum">Museum:</label>
-        <input type="text" id="museum" name="museum">
+        <input type="text" id="museum" name="museum"><br><br>
+        <form method="post" action="/scripts/insert.php" id="queryform" onchange="onFormChange()">
+            <input type="checkbox" id="genrebox" name="genrebox" value="genre">Check to query by genre<br>
+            <input type="checkbox" id="typebox" name="typebox" value="type">Check to query by type<br>
+            <span id="paintingSpan"></span>
+            <input type="checkbox" id="specificationbox" name="specificationbox" value="specification">Check to query by specification<br>
+            <input type="checkbox" id="yearbox" name="yearbox" value="year">Check to query by year<br>
+            <input type="checkbox" id="museumbox" name="museumbox" value="museum">Check to query by museum<br><br>
     </form>
     <div id="results" style="text-align:center;"></div>
     <div>
