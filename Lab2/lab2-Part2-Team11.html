@@ -82,7 +82,7 @@
     </script>
   </head>
   <body onload="onFormChange()">
-    <h2>Art Work Database</h2>
+    <h2>Art Work Databasee</h2>
     <p>
       In this database you will find all kinds of art works you can imagine!
       Each art work will have:
@@ -145,6 +145,16 @@
         <input type="text" id="museum" name="museum">
     </form>
     <div id="results" style="text-align:center;"></div>
+    <div>
+    <p>Write down select statement here:</p>
+    <form class="databaseSelect" action="/scripts/insert.php" method="post">
+      SELECT ALL COLUMNS
+       WHERE
+      <input type="text" name="options"> <br>
+    <input type="submit" name="selectTable" value="Select Query">
+    </form>
+    </div>
+
   </body>
 </html>
 
